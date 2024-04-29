@@ -14,10 +14,24 @@ func (g *Game) deal() {
 	if g.noOfPlayers > 17 {
 		panic("only 17 players allowed")
 	}
-	for i := range g.noOfPlayers {
+	for range g.noOfPlayers {
 		for j := range 3 {
-			g.hands[j].cards[i] = deck.cards[0]
+			g.hands[j].cards = append(g.hands[j].cards, deck.cards[0])
 			deck.cards = append(deck.cards[:0], deck.cards[1:]...)
 		}
 	}
+	for i := range g.hands {
+		g.hands[i].Sort()
+		g.hands[i].Identify()
+	}
+}
+
+func (g Game) Show(player int) Hand {
+	winner := g.hands[player]
+	for _, hand := range g.hands {
+		if !winner.IsGreaterThan(hand) {
+			winner = hand
+		}
+	}
+	return winner
 }
