@@ -59,7 +59,7 @@ func (h *Hand) Identify() {
 		output = Result_Falas
 	}
 
-	if len(ranks) == 3 && (ranks[2]-ranks[0] == 2 || ranks[2]-ranks[1] == 11) {
+	if ranks[2]-ranks[0] == 2 || ranks[2]-ranks[1] == 11 {
 		if output == Result_Falas {
 			h.result = Result_DoubleRun
 			return

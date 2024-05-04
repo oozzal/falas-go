@@ -28,9 +28,9 @@ func (g *Game) deal() {
 
 func (g Game) Show(player int) Hand {
 	winner := g.hands[player]
-	for _, hand := range g.hands {
-		if !winner.IsGreaterThan(hand) {
-			winner = hand
+	for _, challenger := range g.hands {
+		if !winner.IsGreaterThan(challenger) {
+			winner = challenger
 		}
 	}
 	return winner
