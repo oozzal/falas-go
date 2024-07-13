@@ -1,12 +1,12 @@
 package main
 
 type Game struct {
-	noOfPlayers int
 	hands       []Hand
+	noOfPlayers int
 }
 
 func NewGame(noOfPlayers int) Game {
-	return Game{noOfPlayers, make([]Hand, noOfPlayers)}
+	return Game{make([]Hand, noOfPlayers), noOfPlayers}
 }
 
 func (g *Game) deal() {
