@@ -35,6 +35,7 @@ func (h Hand) Sort() {
 }
 
 func (h *Hand) Identify() {
+	h.Sort()
 	output := Result_Badi
 
 	ranks := []int{h.cards[0].Rank(), h.cards[1].Rank(), h.cards[2].Rank()}

@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	game := NewGame(3)
+	game := NewGame(5)
 	game.deal()
 	for _, hand := range game.hands {
 		fmt.Println(hand.Display())
